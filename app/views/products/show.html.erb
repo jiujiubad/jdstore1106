@@ -11,5 +11,5 @@
   <p><%= @product.description %></p>
   <div>¥ <%= @product.price %> 元</div>
   <div>库存：<%= @product.quantity %></div>
-  <%= link_to("加入购物车", "#", class:"btn btn-default btn-lg") %>
+  <%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post, class:"btn btn-default btn-lg") %>
 </div>

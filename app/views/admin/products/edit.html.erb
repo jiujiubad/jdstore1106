@@ -4,5 +4,9 @@
 <%=f.input :description%>
 <%=f.input :quantity%>
 <%=f.input :price%>
-<%= f.submit "新增" %>
+<% if @product.image.present? %>
+  <%= image_tag(@product.image.thumb.url) %>
+<% end %>
+<%=f.input :image, as: :file%>
+<%= f.submit "保存" %>
 <% end %>

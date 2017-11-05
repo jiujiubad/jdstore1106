@@ -4,5 +4,6 @@
 <%=f.input :description%>
 <%=f.input :quantity%>
 <%=f.input :price%>
-<%= f.submit "新增" %>
+<%=f.input :image, as: :file%>
+<%= f.submit "保存" %>
 <% end %>

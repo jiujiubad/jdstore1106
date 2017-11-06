@@ -9,7 +9,13 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     @product = Product.find(params[:id])
-    current_cart.add_product_to_cart(@product)
-    redirect_to :back, notice: "已加入购物车"
+
+    if !current_cart.products.include?(@product)
+      current_cart.add_product_to_cart(@product)
+      flash[:notice] = "#{@product.title}已加入购物车"
+    else
+      flash[:notice] = "#{@product.title}已加入购物车"
+    end
+    redirect_to :back
   end
 end

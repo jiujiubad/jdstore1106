@@ -10,6 +10,7 @@
       <th>描述</th>
       <th>单价</th>
       <th>数量</th>
+      <th>编辑</th>
     </tr>
   </thead>
   <tbody>
@@ -26,6 +27,12 @@
         <td><%= cart_item.product.description %></td>
         <td><%= cart_item.product.price %></td>
         <td><%= cart_item.quantity %></td>
+        <td>
+          <%= link_to cart_item_path(cart_item.product_id), method: :delete, data:{confirm:"确定删除 #{cart_item.product.title}？"} do %>
+            <i class="fa fa-trash"></i> 删除 
+          <% end %>
+        </td>
+
       </tr>
     <% end %>
   </tbody>
